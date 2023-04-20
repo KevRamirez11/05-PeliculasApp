@@ -5,11 +5,26 @@ import React from 'react'
 // import { Text } from 'react-native'
 import { NavigationContainer } from '@react-navigation/native';
 import { Navigation } from './src/navigation/Navigation';
+import { FadeScreen } from './src/screens/FadeScreen';
+import { GradientProvider } from './src/context/GradientContext';
+
+
+const AppState = ({ children }: any) => {
+  return (
+    <GradientProvider>
+      {children}
+    </GradientProvider>
+  )
+  
+}
 
 export const App = () => {
   return (
     <NavigationContainer>
-      <Navigation />
+      {/* <AppState> */}
+        <Navigation />
+      {/* </AppState> */}
+      {/* <FadeScreen /> */}
     </NavigationContainer>
   )
 }

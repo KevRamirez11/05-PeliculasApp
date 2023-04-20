@@ -2,15 +2,17 @@ import React from 'react'
 import {StackScreenProps} from '@react-navigation/stack'
 import { Dimensions, Image, ScrollView, StatusBar, StyleSheet, Text, View, ActivityIndicator } from 'react-native';
 import { Movie } from '../interfaces/movieInterface'
-import { RootStackParams } from '../navigation/Navigation'
+import { Navigation, RootStackParams } from '../navigation/Navigation'
 import { useMovieDetails } from '../hooks/useMovieDetails'
 import { MovieDetails } from '../components/MovieDetails';
+import Icon  from 'react-native-vector-icons/Ionicons';
+import { TouchableOpacity } from 'react-native-gesture-handler';
 
 const screenHeight = Dimensions.get('window').height;
 
 interface Props extends StackScreenProps<RootStackParams,'DetailScreen'> {};
 
-export const DetailScreen = ( { route }: Props ) => {
+export const DetailScreen = ( { route, navigation }: Props ) => {
 
   const movie = route.params as Movie;
   const uri = `https://image.tmdb.org/t/p/w500${movie.poster_path}`
@@ -40,6 +42,19 @@ export const DetailScreen = ( { route }: Props ) => {
           : <MovieDetails movieFull={ movieFull! } cast={ cast } />
         }
 
+        <View style={styles.backButton}>
+          <TouchableOpacity
+            onPress={() => navigation.pop()}
+          >
+              <Icon 
+                  color='white'
+                  name='arrow-back-outline'
+                  size={50}
+                  // style={styles.backButton}
+              />
+          </TouchableOpacity>
+        </View>
+        
     </ScrollView>
 
   )
@@ -83,5 +98,11 @@ const styles = StyleSheet.create({
   title: {
     fontSize: 20,
     fontWeight: 'bold'
+  },
+  backButton: {
+    position: 'absolute',
+    elevation: 9,
+    top: 10,
+    left: 20
   }
 })

@@ -48,8 +48,8 @@ export const MovieDetails = ({ movieFull, cast }: Props) => {
             </Text>
             
             {/* Cast */}
-            <View style={{ marginTop: 10, marginBottom: 100 }}>
-                <Text style={{ fontSize: 20, marginTop: 29, fontWeight: 'bold', marginHorizontal: 20 }}>
+            <View style={{ marginTop: 10, marginBottom: 40}}>
+                <Text style={{ fontSize: 20, marginTop: 29, fontWeight: 'bold', }}>
                     Actores
                 </Text>
                 <FlatList

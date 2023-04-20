@@ -54,7 +54,7 @@ const styles = StyleSheet.create({
         shadowRadius: 7,
 
         elevation: 9,
-        marginHorizontal: 20,
+        // marginHorizontal: 10,
         paddingRight: 30,
     }, 
     actorInfo: {
