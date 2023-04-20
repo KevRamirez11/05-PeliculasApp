@@ -21,9 +21,9 @@ const AppState = ({ children }: any) => {
 export const App = () => {
   return (
     <NavigationContainer>
-      {/* <AppState> */}
+      <AppState>
         <Navigation />
-      {/* </AppState> */}
+      </AppState>
       {/* <FadeScreen /> */}
     </NavigationContainer>
   )
